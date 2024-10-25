@@ -1,18 +1,19 @@
-package com.xworkz.Ecommerce.Runner;
+package com.xworkz.DryFruit.Runner;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class Ecommerce{
+public class DryFruit {
 
 	public static void main(String[] args) {
-		String url="jdbc:mysql://localhost:3306/software_company";
+	
+		String url="jdbc:mysql://localhost:3306/sb_university";
 	    String userName="root";
 		String password="xworkzodc";
-		String insertQuery="insert into company_name values(1,'Amith','amith@gmail.com')";
-		
-		Connection connection = null;
+		String insertQuery="insert into college_name values(018,'Sohita','sohita217@gmail.com')";
+				
+	Connection connection = null;
 		
 		
 		try {
@@ -39,3 +40,6 @@ public class Ecommerce{
 			e.printStackTrace();
 		}
 	}}
+	
+
+
