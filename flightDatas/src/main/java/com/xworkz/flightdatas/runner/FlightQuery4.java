@@ -19,6 +19,7 @@ public class FlightQuery4 {
 		
 		Query query = em.createNamedQuery("getSingleAll");
 		query.setParameter("id", 4);
+		query.setParameter("id",5);
 		List<FlightEntity> str = (List<FlightEntity>)query.getResultList();
 		str.forEach(ref->System.out.println(ref));
 	}

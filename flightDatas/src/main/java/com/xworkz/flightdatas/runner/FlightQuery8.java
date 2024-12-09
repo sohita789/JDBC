@@ -18,9 +18,9 @@ public class FlightQuery8 {
 		try {
 			et.begin();
 			Query query = em.createNamedQuery("updateByName&Email");
-			query.setParameter("name", "Sohita");
-			query.setParameter("phno", 748307990);
 			query.setParameter("weight", 40f);
+			query.setParameter("travellerName", "Sohita");
+			query.setParameter("phno", 748307990);
 			float result = query.executeUpdate();
 			et.commit();
 		} catch (Exception e) {

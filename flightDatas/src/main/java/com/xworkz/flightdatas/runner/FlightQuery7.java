@@ -18,7 +18,7 @@ public class FlightQuery7 {
 			Query query = em.createNamedQuery("update");
 			query.setParameter("email", "kriti@gmail.com");
 			query.setParameter("phno", 748307991);
-			query.setParameter("is_smoker", false);
+			query.setParameter("is_smoker", true);
 			int result = query.executeUpdate();
 			et.commit();
 		} catch (Exception e) {

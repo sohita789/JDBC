@@ -2,6 +2,7 @@ package com.xworkz.flightdatas.Entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,19 +13,14 @@ import javax.persistence.Table;
         @Entity
 	    @Table(name = "flightdata")
         @NamedQuery(name = "getAll", query = "select hc from FlightEntity hc")
-        @NamedQuery(name = "getById", query = "select hc.travellername, hc.email from FlightEntity hc where hc.id= :id")
+       @NamedQuery(name = "getById", query = "select hc.travellerName, hc.email from FlightEntity hc where hc.id= :id")
         @NamedQuery(name = "getCountByAge", query = "select count(hc) from  FlightEntity hc where hc.age> :age")
-
-        @NamedQuery(name = "getSingleAll", query = "select hc from FlightEntity hc where hc.id= :id")
-
-        @NamedQuery(name = "getAllbyName&Email", query = "select hc from FlightEntity hc where hc.travellername= :name and hc.email= :email")
-
-        @NamedQuery(name = "deleteByByName&Age", query = "delete from FlightEntity hc where hc.travellername= :name and hc.age= :age")
-
+       @NamedQuery(name = "getSingleAll", query = "select hc from FlightEntity hc where hc.id= :id")
+        @NamedQuery(name = "getAllbyName&Email", query = "select hc from FlightEntity hc where hc.travellerName= :name and hc.email= :email")
+        @NamedQuery(name = "deleteByName&Age", query = "delete from FlightEntity hc where hc.travellerName= :travellerName and hc.age= :age")
         @NamedQuery(name = "update", query = "update  FlightEntity hc set hc.is_smoker = :is_smoker where hc.email= :email and hc.phno= :phno")
-
-        @NamedQuery(name="updateByName&Email", query = "update FlightEntity  hc set hc.weight= :weight where hc.travellername= :name and hc.phno= :phno")
-        
+        @NamedQuery(name = "updateByName&Email", query = "update FlightEntity  hc set hc.weight= :weight where hc.travellerName= :travellerName and hc.phno= :phno")
+        @NamedQuery(name = "updateByEmailAndPhoneAndAge", query = "update FlightEntity hc set hc.age = :age where hc.email= :email and hc.phno= :phno")
 		public class FlightEntity {
 	     @Id
 			
@@ -37,8 +33,10 @@ import javax.persistence.Table;
 			private int age;
 			private double blood_pressure;
 			private float travellerweight;
+			@Column(name="date_time")
 			private LocalDateTime date_time;
 			private int ticketprice;
+			@Column(name="phno")
 			private int phno;
 			private boolean is_smoker;
 			
@@ -172,8 +170,4 @@ import javax.persistence.Table;
 						+ ", date_time=" + date_time + ", ticketprice=" + ticketprice + ", phno=" + phno
 						+ ", is_smoker=" + is_smoker + "]";
 			}
-
-
-			
-			
 }

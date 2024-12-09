@@ -15,8 +15,8 @@ public static void main(String[] args) {
 		
 		try {
 			et.begin();
-			Query query = em.createNamedQuery("deleteByByName&Age");
-			query.setParameter("name", "Tanushree");
+			Query query = em.createNamedQuery("deleteByName&Age");
+			query.setParameter("travellerName", "Tanushree");
 			query.setParameter("age", 26);
 			et.commit();
 		}catch(Exception e) {
